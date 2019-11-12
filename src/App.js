@@ -46,7 +46,9 @@ import Allingredients from '../src/Allingredients';
             toplam+=ingredient.price
            )       
         })
-        return(toplam)
+        return(
+          ` Toplam Fiyat ${toplam} TL`
+        )
       }
          
 
