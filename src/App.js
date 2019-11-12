@@ -1,26 +1,46 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Hamburger,Itemlist,Totalprice} from './Components/index';
+import '../src/App.css'
+import Allingredients from '../src/Allingredients';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+
+ 
+  class App extends React.Component {
+     constructor(props){
+       super(props);
+       this.state = {
+         ingredients:[],
+         totalprice:0,
+         ingredientscount:0,
+         cıkarbutonu:false,
+       };
+
+       this.malzemeEkle=this.malzemeEkle.bind(this);
+    
+
+     }
+     
+      
+     malzemeEkle(malzeme){
+      this.setState({
+        ingredients: [...this.state.ingredients].concat([{...malzeme, displayId: Math.random()}])
+      })
+    }
+
+    
+
+   render() {
+     return (
+       <div>
+         <Hamburger icindekiler={this.state.ingredients}/>      
+         <Totalprice />
+         <Itemlist Allingredients={Allingredients} /*bir dizi yollar içeride tek tek yazdırmak için map etmen gerekir */
+                   malzemeEkle={this.mazlemeEkle}
+         /> 
+       </div>
+     )
+   }
+ }
+ 
 
 export default App;
