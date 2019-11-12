@@ -5,9 +5,9 @@ function Hamburger(props){
         <div style={{width:"50%",marginLeft:"25%"}}>
             <div className="BreadTop" style={{ height:"100px"}}></div>
 
-            <div>
+            <div> 
                    {
-                       props.icindekiler.map((icindekiurun)=>{
+                       props.icindekiler.map((icindekiurun)=>{ /* props icindekiler dizidir tek tek yazdırmak için map etmen gerekir */
                            return(         
                                <div key={icindekiurun.displayId} style={
                                 {backgroundColor:icindekiurun.color,
@@ -16,7 +16,9 @@ function Hamburger(props){
                                 marginTop: "10px",
                                 height: "20px",
                                }
-                            }></div>
+                            }>
+                                
+                            </div>
                            )
                        })
                    }

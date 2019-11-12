@@ -6,11 +6,29 @@ function Itemlist(props){
         <div style={{backgroundColor:"#fc915d",width:"70%",marginLeft:"15%"}}> 
             {
               props.Allingredients.map((oneingredients)=>{
-                return <Item  key={oneingredients.id} {...oneingredients}
+
+                  const sectigimIcindeVarmi=props.icindekiler.find((icindeki)=>{
+                    return(
+                            oneingredients.name===icindeki.name
+                    )
+                  })  
+                  
+                  const sectigimUrununTamami=props.icindekiler.filter((icindeki)=>{
+                    return(
+                           oneingredients.name===icindeki.name
+                    )
+
+                  })
+
+                return (
+                <Item  key={oneingredients.id} {...oneingredients}
                            malzemeEkle={props.malzemeEkle}
-                           
-                    />
-                
+                           malzemeCikar={props.malzemeCikar}
+                           sectigimUrununTamami={sectigimUrununTamami}
+                           sectigimIcindeVarmi={sectigimIcindeVarmi}
+                       
+                       />  
+                )   
               })
             }
         </div>
